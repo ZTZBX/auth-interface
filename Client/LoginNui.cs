@@ -36,6 +36,7 @@ namespace auth_interface.Client
                 {
                     error = "Please insert the username!"
                 });
+                return;
             }
             if (current_password.Length <= 0)
             {
@@ -43,6 +44,7 @@ namespace auth_interface.Client
                 {
                     error = "Please insert the password!"
                 });
+                return;
             }
 
             TriggerServerEvent("login", current_username, current_password);

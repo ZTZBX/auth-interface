@@ -11,11 +11,19 @@ $(".option").click(function(){
         var item = event.data;
         if (item.showAuth == true) {
             document.getElementsByClassName("main")[0].style.display = "block";
+
+            if (item.error != "NOE")
+            {
+                document.getElementById("error_message").innerHTML = item.error
+                document.getElementById("error_message").style.display = "block"  
+            }
         } 
         else 
         {
             document.getElementsByClassName("main")[0].style.display = "none";
         }
+
+
     });
 
 

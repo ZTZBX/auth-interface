@@ -30,7 +30,7 @@ namespace auth_interface.Server
             }
             else
             {
-
+                TriggerClientEvent(user, "loginAction", false, result);
             }
         }
 
