@@ -11,8 +11,6 @@ namespace auth_interface.Client
         {
             EventHandlers["loginAction"] += new Action<bool, string>(LoginAction);
             EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
-
-
         }
 
         private void OnClientResourceStart(string resourceName)
@@ -21,28 +19,35 @@ namespace auth_interface.Client
             if (GetCurrentResourceName() != resourceName) return;
 
             FreezeEntityPosition(PlayerPedId(), true);
-            gamenui.gameNui(true, false, false, "login");
+            ClientMain.AuthUi(true);
         }
 
 
         private void LoginAction(bool status, string info)
         {
-            if (status == true) {ClientMain.AuthUi(false);}
-            else {ClientMain.AuthUi(true, info);}
+            if (status == true) { ClientMain.AuthUi(false); }
+            else { ClientMain.AuthUi(true, info); }
         }
 
         static public void AuthUi(bool state, string error = "NOE")
         {
             string jsonString = "";
+
             
+
             if (error != "NOE")
             {
-                if (state) { jsonString = "{\"showAuth\": true, \"error\": \""+error+"\" }"; SetNuiFocus(true, true);}
+                if (state) { jsonString = "{\"showAuth\": true, \"error\": \"" + error + "\" }"; SetNuiFocus(true, true); }
             }
-            else 
+            else
             {
-                if (!state) { jsonString = "{\"showAuth\": false, \"error\": \"NOE\" }"; SetNuiFocus(false, false);}
-                if (state) { jsonString = "{\"showAuth\": true, \"error\": \"NOE\" }"; SetNuiFocus(true, true);}
+                if (!state) { jsonString = "{\"showAuth\": false, \"error\": \"NOE\" }"; SetNuiFocus(false, false); }
+                if (state)
+                {
+                    jsonString = "{\"showAuth\": true, \"error\": \"NOE\" }";
+                    SetNuiFocus(true, true);
+                    SetNuiFocus(true, true);
+                }
             }
 
             SendNuiMessage(jsonString);
