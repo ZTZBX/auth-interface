@@ -10,15 +10,15 @@ namespace auth_interface.Client
         public ClientMain()
         {
 
-            EventHandlers["onResourceStart"] += new Action<string>(OnResourceStart);
+            EventHandlers["populationPedCreating"] += new Action<float, float, float, uint, dynamic>(populationPedCreating);
             EventHandlers["loginAction"] += new Action<bool, string>(LoginAction);
+            SetNuiFocus(true, true);
 
         }
 
-        private void OnResourceStart(string resourceName)
+        private void populationPedCreating(float x, float y, float z, uint model, dynamic setters)
         {
-            if (GetCurrentResourceName() != resourceName) return;
-            ClientMain.AuthUi(true);
+            SetNuiFocus(true, true);
         }
 
         private void LoginAction(bool status, string info)
