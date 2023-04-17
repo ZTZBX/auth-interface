@@ -11,6 +11,7 @@ namespace auth_interface.Server
         public ServerMain()
         {
             EventHandlers["login"] += new Action<Player, string, string>(Login);
+            EventHandlers["register"] += new Action<Player, string, string, string>(Register);
 
         }
 
@@ -23,6 +24,27 @@ namespace auth_interface.Server
             int player_id = int.Parse(user.Handle);
 
             string result = Exports["core-ztzbx"].login(player_id, user_pass);
+
+            if (result == "OK" || result == "You cant login if you are already logged")
+            {
+                TriggerClientEvent(user, "loginAction", true, result);
+            }
+            else
+            {
+                TriggerClientEvent(user, "loginAction", false, result);
+            }
+        }
+
+        private void Register([FromSource] Player user, string username, string password, string email)
+        {
+            List<string> user_pass = new List<string> { };
+            user_pass.Add(username);
+            user_pass.Add(password);
+            user_pass.Add(email);
+
+            int player_id = int.Parse(user.Handle);
+
+            string result = Exports["core-ztzbx"].register(player_id, user_pass);
 
             if (result == "OK" || result == "You cant login if you are already logged")
             {

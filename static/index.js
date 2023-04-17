@@ -49,4 +49,28 @@ $(".option").click(function(){
     });
 
 
+    $("#submit_register").click(function() {
+        var user = $("#rename").val();
+        var email = $("#reemail").val();
+        var pass = $("#regpass").val();
+
+        fetch(`https://auth-interface/register_nui`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify({
+                username: user,
+                email: email,
+                password: pass
+            })
+        }).then(resp => resp.json()).then(
+            resp => document.getElementById("error_message").innerHTML = resp["error"]
+            ).then(
+                resp => document.getElementById("error_message").style.display = "block"   
+            );
+
+    });
+
+
  });
