@@ -1,4 +1,4 @@
-# auth_interface for CitizenFX
+# auth_interface for ZTZBX Framework
 
 **To preview the ui just press on this link: https://ztzbx.github.io/auth-interface/static/**
 
