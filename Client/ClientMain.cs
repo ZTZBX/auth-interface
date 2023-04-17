@@ -9,17 +9,21 @@ namespace auth_interface.Client
     {
         public ClientMain()
         {
-
-            EventHandlers["populationPedCreating"] += new Action<float, float, float, uint, dynamic>(populationPedCreating);
             EventHandlers["loginAction"] += new Action<bool, string>(LoginAction);
-            SetNuiFocus(true, true);
+            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
+
 
         }
 
-        private void populationPedCreating(float x, float y, float z, uint model, dynamic setters)
+        private void OnClientResourceStart(string resourceName)
         {
-            SetNuiFocus(true, true);
+            // LOGIC HANGLE
+            if (GetCurrentResourceName() != resourceName) return;
+
+            FreezeEntityPosition(PlayerPedId(), true);
+            gamenui.gameNui(true, false, false, "login");
         }
+
 
         private void LoginAction(bool status, string info)
         {
