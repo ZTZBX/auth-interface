@@ -3,7 +3,6 @@ $(".option").click(function(){
     $(this).addClass("active");
     
  });
- 
 
 
  $(function() {
@@ -22,8 +21,6 @@ $(".option").click(function(){
         {
             document.getElementsByClassName("main")[0].style.display = "none";
         }
-
-
     });
 
 
