@@ -25,7 +25,7 @@ namespace auth_interface.Server
 
             string result = Exports["core-ztzbx"].login(player_id, user_pass);
 
-            if (result == "OK" || result == "You cant login if you are already logged")
+            if (result == "OK")
             {
                 TriggerClientEvent(user, "loginAction", true, result);
             }
@@ -46,7 +46,7 @@ namespace auth_interface.Server
 
             string result = Exports["core-ztzbx"].register(player_id, user_pass);
 
-            if (result == "OK" || result == "You cant login if you are already logged")
+            if (result == "OK")
             {
                 TriggerClientEvent(user, "loginAction", true, result);
             }
