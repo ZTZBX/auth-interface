@@ -37,7 +37,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = Exports["language"].no_username()
+                    error = LanguageData.no_username
                 });
                 return;
             }
@@ -46,7 +46,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = Exports["language"].no_password()
+                    error = LanguageData.no_password
                 });
                 return;
             }
@@ -55,7 +55,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = Exports["language"].no_email()
+                    error = LanguageData.no_email
                 });
                 return;
             }

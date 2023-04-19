@@ -18,6 +18,7 @@ namespace auth_interface.Client
             // LOGIC HANGLE
             if (GetCurrentResourceName() != resourceName) return;
 
+            TriggerServerEvent("updateLanguage", "");
             FreezeEntityPosition(PlayerPedId(), true);
             ClientMain.AuthUi(true);
         }
