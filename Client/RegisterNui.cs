@@ -37,7 +37,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = "Please insert the username!"
+                    error = Exports["language"].no_username()
                 });
                 return;
             }
@@ -46,7 +46,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = "Please insert the password!"
+                    error = Exports["language"].no_password()
                 });
                 return;
             }
@@ -55,7 +55,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = "Please insert the email!"
+                    error = Exports["language"].no_email()
                 });
                 return;
             }

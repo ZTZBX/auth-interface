@@ -23,7 +23,6 @@ namespace auth_interface.Client
             object username;
             object password;
 
-
             if (!data.TryGetValue("username", out username)) { return; }
             if (!data.TryGetValue("password", out password)) { return; }
 
@@ -34,7 +33,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = "Please insert the username!"
+                    error = Exports["language"].no_username()
                 });
                 return;
             }
@@ -42,7 +41,7 @@ namespace auth_interface.Client
             {
                 cb(new
                 {
-                    error = "Please insert the password!"
+                    error = Exports["language"].no_password()
                 });
                 return;
             }

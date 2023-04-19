@@ -17,7 +17,8 @@ version '1.0.0'
 description 'ztzbx auth interface'
 
 dependencies {
-    "core-ztzbx"
+    "core-ztzbx",
+    "language"
 }
 
 ui_pages {
