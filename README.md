@@ -9,7 +9,7 @@ To build it, run `build.cmd`. To run it, run the following commands to make a sy
 
 ```dos
 cd /d [PATH TO THIS RESOURCE]
-mklink /d X:\cfx-server-data\resources\[local]\auth_interface dist
+mklink /d X:\cfx-server-data\resources\[local]\auth-interface dist
 ```
 
-Afterwards, you can use `ensure auth_interface` in your server.cfg or server console to start the resource.
+Afterwards, you can use `ensure auth-interface` in your server.cfg or server console to start the resource.
