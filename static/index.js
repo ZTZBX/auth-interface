@@ -41,7 +41,7 @@ $(".option").click(function(){
             resp => document.getElementById("error_message").innerHTML = resp["error"]
             ).then(
                 resp => document.getElementById("error_message").style.display = "block"   
-            );
+            ).catch();
 
     });
 
